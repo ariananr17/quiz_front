@@ -1,0 +1,15 @@
+p {
+    font-size: 20px;
+}
+
+.category {
+    opacity: 0.7;
+}
+
+.goToBtn {
+    color: #535455ff;
+}
+
+.goToBtn:hover {
+    color: #ffb6c1;
+}

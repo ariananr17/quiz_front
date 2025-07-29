@@ -1,0 +1,59 @@
+.quizListContainer {
+    /* border: 1px solid #e02948; */
+    padding: 16px;
+    width: auto;
+    max-width: 1050px;
+    height: auto;
+    max-height: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.quizCardContainer {
+    padding: 16px;
+    background-color: #f7f0ee;
+    min-width: 290px;
+    max-width: 290px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.headerStyles {
+    height: 40px;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 7px 10px;
+    text-align: end;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #e5e7eb;
+    text-shadow: -1px 4px 7px rgba(0,0,0,0.39);
+}
+
+.linkStyle {
+    color: black;
+    margin-right: 5px;
+}
+
+.deleteBtn {
+  background-color: #ffb6c1; /* light pink */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-top: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(255, 182, 193, 0.5);
+}
+
+.deleteBtn:hover {
+  background-color: #ff69b4; /* hot pink */
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.6);
+}

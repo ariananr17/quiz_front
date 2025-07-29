@@ -1,0 +1,30 @@
+.categoriesContainer {
+    max-width: 1050px;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    gap: 10px;
+    background-color: white;
+}
+
+
+.categoryItem {
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  justify-content: center;
+}
+
