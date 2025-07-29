@@ -15,13 +15,11 @@ export async function createNewQuiz(newQuiz) {
         })
     })
     const data = await res.json()
-    console.log(data)
 }
 
 export async function fetchAllQuizzes(page) {
     const res = await fetch(`${url}/quiz?page=${page}&size=15`)
     const data = await res.json()
-    console.log(data)
     return data
 }
 
@@ -34,7 +32,6 @@ export async function fetchAllCategories() {
 export async function fetchQuizzesByCategory(categoryId) {
     const res = await fetch(`${url}/quiz/quizzes?categoryId=${categoryId}`)
     const data = await res.json()
-    console.log(data)
     return data
     
 }
@@ -42,7 +39,6 @@ export async function fetchQuizzesByCategory(categoryId) {
 export async function fetchQuizById(id) {
     const res = await fetch(`${url}/quiz/${id}`)
     const data = await res.json()
-    console.log(data)
     return data
 }
 
