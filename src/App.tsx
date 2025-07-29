@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './global.css'
-import { Routes, Route} from 'react-router-dom'
+import { Routes, Route, BrowserRouter} from 'react-router-dom'
 import QuizList from './components/QuizList/QuizList'
 import CreateQuiz from './components/CreateQuiz/CreateQuiz'
 import { fetchAllCategories, fetchAllQuizzes } from '../src/services/apiService.js'
@@ -40,7 +40,8 @@ function App() {
   }
 
   useEffect(() => {
-    fetchData()    
+    fetchData()
+    console.log(quizList)    
   },[page])
 
   useEffect(() => {
@@ -48,7 +49,8 @@ function App() {
   },[categories])
 
   return (
-    <div onScroll={handleScroll} style={{ height: '100vh', overflowY: 'auto' }}>
+    
+      <div onScroll={handleScroll} style={{ height: '100vh', overflowY: 'auto' }}>
       <Routes>
           <Route path="/" element={<QuizList quizList={quizList} setQuizList={setQuizList} categories={categories} />} />
           <Route path="/categories/:id" element={<CategoryQuiz />} />
@@ -56,7 +58,8 @@ function App() {
           <Route path="/create" element={<CreateQuiz />} />
           <Route path="/quiz/:id" element={<Quiz />} />
       </Routes>
-    </div>
+      </div>
+    
       
     
   )
