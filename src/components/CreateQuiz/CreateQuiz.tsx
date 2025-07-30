@@ -5,7 +5,7 @@ import { createNewQuiz } from '../../services/apiService.js'
 import { Link } from 'react-router-dom'
 
 const options = [
-    {value:"history", label:"History"}
+    {value:"javascript", label:"Javascript"}
 ]
 
 function CreateQuiz() {
