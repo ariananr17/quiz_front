@@ -44,8 +44,10 @@ function App() {
   }
 
   useEffect(() => {
-    fetchData()
-    console.log(quizList)    
+    if (quizList.length === 0) {
+    setLoading(true); // asegurar que arranca en true
+    fetchData();
+  }
   },[page])
 
   useEffect(() => {
