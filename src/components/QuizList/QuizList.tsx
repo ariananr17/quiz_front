@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import QuizCard from '../QuizCard/QuizCard'
 import styles from './QuizList.module.css'
 import { fetchQuizzesByCategory } from '../../services/apiService.js'
+import QuizCardSkeleton from '../QuizCardSkeleton/QuizCardSkeleton.js'
 
-function QuizList({ quizList, categories, setQuizList }) {
+function QuizList({ loading, quizList, categories, setQuizList }) {
 
   console.log(categories)
 
@@ -16,24 +17,41 @@ function QuizList({ quizList, categories, setQuizList }) {
     setQuizList(data)
   }
 
+  const renderView = () => {
+    if(loading) {
+      return <>
+      <header className={styles.headerStyles}>
+        <Link to="/categories" className={styles.linkStyle}>Categories</Link>
+        <Link to="/create" className={styles.linkStyle}>Create</Link>
+      </header>
+      <div className={styles.quizListContainer}>
+          <QuizCardSkeleton />
+          <QuizCardSkeleton />
+          <QuizCardSkeleton />
+      </div>
+      </> 
+    } else {
+      return <>
+      <header className={styles.headerStyles}>
+        <Link to="/categories" className={styles.linkStyle}>Categories</Link>
+        <Link to="/create" className={styles.linkStyle}>Create</Link>
+      </header>
+      <div className={styles.quizListContainer}>
+          {quizList.map((quiz) => (
+            <div key={quiz.id} className={styles.quizCardContainer}>
+              <QuizCard id={quiz.id} title={quiz.title} category={quiz.category.name} />
+
+            </div>
+          ))}
+      </div>
+      </>
+    }
+  }
+
 
   return (
     <>
-    <header className={styles.headerStyles}>
-      <Link to="/categories" className={styles.linkStyle} >Categories</Link>
-      <Link to="/create" className={styles.linkStyle} >Create</Link>
-    </header>
-    
-    <div className={styles.quizListContainer}>
-        {
-            quizList.map((quiz) => (
-            <div  key={quiz.id} className={styles.quizCardContainer}>
-                <QuizCard id={quiz.id} title={quiz.title} category={quiz.category.name} />
-                
-            </div>
-        ))
-        }
-    </div>
+    {renderView()}
     </>
     
   )

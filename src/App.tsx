@@ -14,9 +14,11 @@ function App() {
   const [quizList, setQuizList] = useState([])
   const [categories, setCategories] = useState([])
   const [page, setPage] = useState(0);
+  const [loading, setLoading] = useState(true)
   const [hasMore, setHasMore] = useState(true);
 
   const fetchData = async () => {
+    setLoading(true)
     const [quizResponse, categoriesResponse] = await Promise.all([
         fetchAllQuizzes(page),
         fetchAllCategories()
@@ -24,6 +26,8 @@ function App() {
 
       setQuizList((prev) => [...prev, ...quizResponse])
       setCategories(categoriesResponse)
+
+      setLoading(false)
 
       if (quizResponse.length < 12) {
       setHasMore(false); // Si no hay 20 elementos, significa que ya no hay más
@@ -52,7 +56,7 @@ function App() {
     
       <div onScroll={handleScroll} style={{ height: '100vh', overflowY: 'auto' }}>
       <Routes>
-          <Route path="/" element={<QuizList quizList={quizList} setQuizList={setQuizList} categories={categories} />} />
+          <Route path="/" element={<QuizList loading={loading} quizList={quizList} setQuizList={setQuizList} categories={categories} />} />
           <Route path="/categories/:id" element={<CategoryQuiz />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/create" element={<CreateQuiz />} />

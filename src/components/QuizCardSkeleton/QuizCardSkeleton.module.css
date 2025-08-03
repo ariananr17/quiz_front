@@ -1,0 +1,39 @@
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  max-width: 290px;
+  min-height: 150px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.titlePlaceholder {
+  width: 80%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.categoryPlaceholder {
+  width: 40%;
+  height: 15px;
+  align-self: flex-end;
+}
+
+.buttonPlaceholder {
+  width: 60%;
+  height: 30px;
+  margin-top: 15px;
+  border-radius: 6px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
